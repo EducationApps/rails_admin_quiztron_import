@@ -1,0 +1,27 @@
+Rails\_admin\_quiztron\_import
+==============================
+
+::
+
+    Andy Chase    
+    Client: George Burgess  
+    EducationApps Limited
+
+This module provides a simple product import page to the gojimo admin
+backend that allows users to import product zip files easily.
+
+How to use:
+-----------
+
+1. Log in to Gojimo Admin
+2. Click on "Products" on the left side
+3. Under the Actions bar: (i.e. List, Add New, Export..) click "Quiztron
+   Import"
+4. Drag your zip file into the space provided
+5. You will be re-directed to the product model once the product has
+   loaded
+
+License
+-------
+
+Copyright © 2014, EducationApps Ltd. All rights reserved.

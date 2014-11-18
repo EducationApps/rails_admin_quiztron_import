@@ -1,0 +1,11 @@
+
+en:
+  admin:
+    actions:
+      quiztron_import:
+        title: Quiztron Import
+        menu: Quiztron Import
+        breadcrumb: Quiztron Import
+        link: Quiztron Import
+        bulk_link: "Quiztron Import selected %{model_label_plural}"
+        done: Quiztron Imported
