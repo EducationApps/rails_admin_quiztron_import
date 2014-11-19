@@ -59,12 +59,16 @@ module RailsAdmin
 						respond_to do |format|
 							format.html do
 								quiztron_server_upload_url = ENV['QUIZTRON_SERVER_UPLOAD_URL']
-								quiztron_uri = URI(quiztron_server_upload_url)
-								quiztron_host = "#{quiztron_uri.scheme}://#{quiztron_uri.host}:#{quiztron_uri.port}"
+								if quiztron_server_upload_url
+									quiztron_uri = URI(quiztron_server_upload_url)
+									quiztron_host = "#{quiztron_uri.scheme}://#{quiztron_uri.host}:#{quiztron_uri.port}"
 
-								render template: @action.template_name,
-											 locals: {quiztron_server_upload_url: quiztron_server_upload_url, quiztron_host: quiztron_host},
-											 status: (flash[:error].present? ? :not_found : 200)
+									render template: @action.template_name,
+												 locals: {quiztron_server_upload_url: quiztron_server_upload_url, quiztron_host: quiztron_host},
+												 status: (flash[:error].present? ? :not_found : 200)
+								else
+									render template: 'quiztron_no_environment'
+								end
 							end
 						end
 					end
