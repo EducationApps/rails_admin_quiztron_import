@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="<%= quiztron_host %>/static/css/dropzone.css">
 <style type="text/css">
  table#processed_files_table { width: 100%; }
- table#processed_files_table tr th { border: 1px solid black; padding: 5px; font-weight: bold; }
- table#processed_files_table tr td { border: 1px solid black; padding: 5px; }
+ table#processed_files_table tr th { padding: 5px; font-weight: bold; }
+ table#processed_files_table tr td { padding: 5px; }
+ table#processed_files_table tr:nth-child(even) { background-color: #f5f5f5; padding: 5px; }
 </style>
 
+<div id="page_not_loaded_yet_placeholder" style="font-size: 16pt; margin: 10px;"></div>
 <form method="post" action="<%= quiztron_server_upload_url %>" class="dropzone" id="quiztron-upload-dropzone"></form>
 
-<h3>Files being processed</h3>
+<h3 id="processed_files_header">Files being processed</h3>
 <table id='processed_files_table'>
     <thead>
     <tr>
@@ -18,9 +20,14 @@
     </tbody>
 </table>
 
-
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('#page_not_loaded_yet_placeholder').text("Loading...");
+        $('#processed_files_table').hide();
+        $('#processed_files_header').hide();
+        $('#quiztron-upload-dropzone').hide();
+    });
+</script>
 <!-- We pull sources from the quiztron-server so that the logic stays in one spot as much as possible -->
-<script src="<%= quiztron_host %>/static/js/moment.min.js"></script>
-<script src="<%= quiztron_host %>/static/js/dropzone.min.js"></script>
 <script src="<%= quiztron_server_upload_url %>.js"></script>
 <script src="<%= quiztron_host %>/static/js/upload_logic.js"></script>
