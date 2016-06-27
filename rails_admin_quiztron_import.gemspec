@@ -13,5 +13,6 @@ Gem::Specification.new do |s|
   s.description = 'Adds a quiztron import action to gojimo admin server'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'README.rdoc']
+  s.add_dependency "rails", "~> 4.2.6"
 
 end
